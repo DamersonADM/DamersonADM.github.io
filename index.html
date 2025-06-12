@@ -1,5 +1,26 @@
 <html>
   <head>
+<style>
+  .coracao {
+    position: fixed;
+    font-size: 24px;
+    color: #ff69b4;
+    animation: subir 2s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes subir {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200px) scale(1.5);
+      opacity: 0;
+    }
+  }
+</style>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link
       rel="stylesheet"
@@ -8,7 +29,7 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
     />
 
-    <title>Stitch Design</title>
+    <title>Feliz dia dos namorados! 💜</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -37,6 +58,32 @@
   setInterval(atualizarContador, 1000);
   atualizarContador(); // Chama logo ao carregar
 </script>
+<script>
+  function soltarCoracoes() {
+    for (let i = 0; i < 10; i++) {
+      setTimeout(() => {
+        const coracao = document.createElement("div");
+        coracao.className = "coracao";
+        coracao.textContent = "💖";
+
+        // Posição aleatória perto do clique
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+
+        coracao.style.left = `${x}px`;
+        coracao.style.top = `${y}px`;
+
+        document.body.appendChild(coracao);
+
+        // Remove após animação
+        setTimeout(() => {
+          coracao.remove();
+        }, 2000);
+      }, i * 100); // efeito sequencial
+    }
+  }
+</script>
+
   </head>
   <body>
     <div class="relative flex size-full min-h-screen flex-col bg-[#141118] dark group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
@@ -51,8 +98,9 @@
                   style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD95rRI6tyvRU0_bA3mLrLV-npZdlP3Ng4hTJmxLqmkQfnI-mfJAQBlZs1cq0px2gecN-geE_qqDyE9Fr1VXHHfulwDlmoK1F-PEnnRLZm6UKQoSc64CbBJ2U3KusEruTXkgIfrXj1C2uyTZZuv2SWm1x5VV53gyGhpwiRCErgWWl6FnybOLE8yECBcP7IGi6nORt06Uug-hnwV891kLy14Vwp-7S0IJBavseGlmMtZndI_V1JLW6ocsTU8oGCsHCg0AiNmw3QNgA");'
                 ></div>
               </div>
+            </div>
  <h1 class="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">E este é todo o tempo que estamos juntos.</h1>
-            </div><div class="flex gap-4 py-6 px-4">
+        <div class="flex gap-4 py-6 px-4">
   <div class="flex grow basis-0 flex-col items-stretch gap-4">
     <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
       <p id="dias" class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">0</p>
