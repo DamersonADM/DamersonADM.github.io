@@ -4,8 +4,8 @@
       .coracao {
         position: fixed;
         font-size: 24px;
-        color: #a855f7; /* 💜 roxo */
-        animation: subir 4s ease-out forwards; /* duração aumentada para 4 segundos */
+        color: #a855f7;
+        animation: subir 4s ease-out forwards;
         pointer-events: none;
         z-index: 9999;
       }
@@ -22,12 +22,12 @@
       }
     </style>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
       rel="stylesheet"
       as="style"
       onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900&display=swap"
     />
 
     <title>Feliz dia dos namorados! 💜</title>
@@ -36,12 +36,11 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <script>
-      const dataInicio = new Date(2023, 11, 18, 0, 0, 0); // 18/12/2023 00:00:00
+      const dataInicio = new Date(2023, 11, 18, 0, 0, 0);
 
       function atualizarContador() {
         const agora = new Date();
         const diffMs = agora - dataInicio;
-
         const totalSegundos = Math.floor(diffMs / 1000);
         const dias = Math.floor(totalSegundos / (60 * 60 * 24));
         const horas = Math.floor((totalSegundos % (60 * 60 * 24)) / (60 * 60));
@@ -49,9 +48,9 @@
         const segundos = totalSegundos % 60;
 
         document.getElementById("dias").textContent = dias;
-        document.getElementById("horas").textContent = String(horas).padStart(2, "0");
-        document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
-        document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+        document.getElementById("horas").textContent = String(horas).padStart(2, '0');
+        document.getElementById("minutos").textContent = String(minutos).padStart(2, '0');
+        document.getElementById("segundos").textContent = String(segundos).padStart(2, '0');
       }
 
       setInterval(atualizarContador, 1000);
@@ -63,39 +62,38 @@
             const coracao = document.createElement("div");
             coracao.className = "coracao";
             coracao.textContent = "💜";
-
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
-
             coracao.style.left = `${x}px`;
             coracao.style.top = `${y}px`;
-
             document.body.appendChild(coracao);
-
             setTimeout(() => coracao.remove(), 4000);
           }, i * 100);
         }
       }
 
       function tocarMusicaESoltarCoracoes() {
-        const musica = document.getElementById("musica");
-        musica.play();
+        const audio = document.getElementById("musica");
+        audio.play().catch((e) => {
+          console.log("Falha ao tocar música:", e);
+        });
         soltarCoracoes();
       }
     </script>
   </head>
+  <body class="bg-[#141118]" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
 
-  <body>
-    <div
-      class="relative flex size-full min-h-screen flex-col bg-[#141118] dark group/design-root overflow-x-hidden"
-      style='font-family: "Public Sans", "Noto Sans", sans-serif;'
-    >
+    <!-- Player de música invisível -->
+    <audio id="musica" preload="auto">
+      <source src="https://github.com/DamersonADM/DamersonADM.github.io/raw/refs/heads/Master/Seu%20Pereira%20-%20Se%20Voc%C3%AA%20Quiser.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+
+    <div class="relative flex size-full min-h-screen flex-col dark group/design-root overflow-x-hidden">
       <div class="layout-container flex h-full grow flex-col">
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <h1
-              class="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6"
-            >
+            <h1 class="text-[#7e22ce] tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">
               Oi me amor, Tudo bem?<br />Eu projetei este presenteinho para você!
             </h1>
             <div class="flex w-full grow bg-[#141118] @container p-4">
@@ -106,96 +104,57 @@
                 ></div>
               </div>
             </div>
-            <h1
-              class="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6"
-            >
+            <h1 class="text-[#7e22ce] tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">
               E este é todo o tempo que estamos juntos.
             </h1>
             <div class="flex gap-4 py-6 px-4">
               <div class="flex grow basis-0 flex-col items-stretch gap-4">
-                <div
-                  class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]"
-                >
-                  <p
-                    id="dias"
-                    class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
-                  >
-                    0
-                  </p>
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
+                  <p id="dias" class="text-[#7e22ce] text-lg font-bold">0</p>
                 </div>
                 <div class="flex items-center justify-center">
-                  <p class="text-white text-sm font-normal leading-normal">Dias</p>
+                  <p class="text-[#7e22ce] text-sm">Dias</p>
                 </div>
               </div>
               <div class="flex grow basis-0 flex-col items-stretch gap-4">
-                <div
-                  class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]"
-                >
-                  <p
-                    id="horas"
-                    class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
-                  >
-                    0
-                  </p>
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
+                  <p id="horas" class="text-[#7e22ce] text-lg font-bold">0</p>
                 </div>
                 <div class="flex items-center justify-center">
-                  <p class="text-white text-sm font-normal leading-normal">Horas</p>
+                  <p class="text-[#7e22ce] text-sm">Horas</p>
                 </div>
               </div>
               <div class="flex grow basis-0 flex-col items-stretch gap-4">
-                <div
-                  class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]"
-                >
-                  <p
-                    id="minutos"
-                    class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
-                  >
-                    0
-                  </p>
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
+                  <p id="minutos" class="text-[#7e22ce] text-lg font-bold">0</p>
                 </div>
                 <div class="flex items-center justify-center">
-                  <p class="text-white text-sm font-normal leading-normal">Minutos</p>
+                  <p class="text-[#7e22ce] text-sm">Minutos</p>
                 </div>
               </div>
               <div class="flex grow basis-0 flex-col items-stretch gap-4">
-                <div
-                  class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]"
-                >
-                  <p
-                    id="segundos"
-                    class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
-                  >
-                    0
-                  </p>
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
+                  <p id="segundos" class="text-[#7e22ce] text-lg font-bold">0</p>
                 </div>
                 <div class="flex items-center justify-center">
-                  <p class="text-white text-sm font-normal leading-normal">Segundos</p>
+                  <p class="text-[#7e22ce] text-sm">Segundos</p>
                 </div>
               </div>
             </div>
-            <p
-              class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4 text-center"
-            >
+            <p class="text-[#7e22ce] text-base text-center pb-3 pt-1 px-4">
               Todos os Dias, horas, minutos e segundos que compartilhamos juntos, nos trouxe momentos incríveis e cada um é uma memória muito querida para mim, eu te amo muito, vida. 💜
             </p>
             <div class="flex px-4 py-3 justify-center">
               <button
                 onclick="tocarMusicaESoltarCoracoes()"
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#7512e7] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#7512e7] text-white text-sm font-bold"
               >
-                <span class="truncate">Mágia do Amor</span>
+                <span class="truncate">Send Love</span>
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Áudio oculto para tocar a música -->
-    <audio
-      id="musica"
-      src="https://docs.google.com/uc?export=download&id=1Fj7ZCCyygScyrJPptcbEonqP_hwvPh4w"
-      preload="auto"
-    ></audio>
   </body>
 </html>
