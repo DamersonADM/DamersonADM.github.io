@@ -91,22 +91,27 @@
 
     <div class="relative flex size-full min-h-screen flex-col dark group/design-root overflow-x-hidden">
       <div class="layout-container flex h-full grow flex-col">
-        <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="px-4 sm:px-10 md:px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <h1 class="text-[#7e22ce] tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">
               Oi me amor, Tudo bem?<br />Eu projetei este presenteinho para você!
             </h1>
-            <div class="flex w-full grow bg-[#141118] @container p-4">
-              <div class="w-full gap-1 overflow-hidden bg-[#141118] @[480px]:gap-2 aspect-[3/2] rounded-xl flex">
-                <div
-                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
-                  style='background-image: url("https://media.discordapp.net/attachments/793914446174093362/1382806204388085770/IMG-20250221-WA0046.jpg?ex=684c7e22&is=684b2ca2&hm=80db8ffb56621b6e00e979ab6f41775da03bc023f12d88a56c36cc3bd073cf86&=&format=webp&width=783&height=587");'
-                ></div>
+
+            <!-- Imagem com responsividade para celulares -->
+            <div class="flex w-full grow bg-[#141118] p-4">
+              <div class="w-full overflow-hidden rounded-xl">
+                <img
+                  src="https://media.discordapp.net/attachments/793914446174093362/1382806204388085770/IMG-20250221-WA0046.jpg?ex=684c7e22&is=684b2ca2&hm=80db8ffb56621b6e00e979ab6f41775da03bc023f12d88a56c36cc3bd073cf86&=&format=webp&width=783&height=587"
+                  alt="Imagem nossa"
+                  class="w-full h-auto object-cover rounded-xl"
+                />
               </div>
             </div>
+
             <h1 class="text-[#7e22ce] tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">
               E este é todo o tempo que estamos juntos.
             </h1>
+
             <div class="flex gap-4 py-6 px-4">
               <div class="flex grow basis-0 flex-col items-stretch gap-4">
                 <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#302c35]">
@@ -141,9 +146,11 @@
                 </div>
               </div>
             </div>
+
             <p class="text-[#7e22ce] text-base text-center pb-3 pt-1 px-4">
               Todos os Dias, horas, minutos e segundos que compartilhamos juntos, nos trouxe momentos incríveis e cada um é uma memória muito querida para mim, eu te amo muito, vida. 💜
             </p>
+
             <div class="flex px-4 py-3 justify-center">
               <button
                 onclick="tocarMusicaESoltarCoracoes()"
